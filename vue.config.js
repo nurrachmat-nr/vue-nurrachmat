@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: process.NODE_ENV === "production" ? "/vue-nurrachmat/" : "/"
+    publicPath: process.env.NODE_ENV === "production" ? "/vue-nurrachmat/" : "/"
 }
