@@ -40,3 +40,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .carousel-inner > .item > img { width:100%; height:570px; }
+</style>
