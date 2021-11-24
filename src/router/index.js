@@ -15,7 +15,14 @@ const routes = [
         path: '/register',
         name: 'register',
         component: () => import('@/views/register/Main')
-    }
+    },
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/dashboard/Main')
+    },
+    
+
 ];
 
 const router = createRouter({
