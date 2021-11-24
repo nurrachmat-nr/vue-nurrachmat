@@ -18,7 +18,7 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>   
+                <router-link to="/dashboard" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</router-link>   
                 <router-link :to="{name: 'register'}" class="w-100 btn btn-lg btn-secondary mt-1" type="button">Register</router-link>
 
                 <router-link :to="{path: '/'}">Back To Home</router-link>

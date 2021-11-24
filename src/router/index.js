@@ -21,8 +21,16 @@ const routes = [
         name: 'dashboard',
         component: () => import('@/views/dashboard/Main')
     },
-    
-
+    {
+        path: '/profil',
+        name: 'profil',
+        component: () => import('@/views/profil/Main')
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: () => import('@/views/about/Main')
+    },
 ];
 
 const router = createRouter({
