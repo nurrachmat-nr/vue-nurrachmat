@@ -36,6 +36,11 @@ const routes = [
         name: 'users',
         component: () => import('@/views/users/Main')
     },
+    {
+        path: '/users/:id/:username?',
+        name: 'detailuser',
+        component: () => import('@/views/users/DetailUser')
+    },
 ];
 
 const router = createRouter({

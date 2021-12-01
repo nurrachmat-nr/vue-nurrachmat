@@ -4,8 +4,8 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Users</h1>
             </div>
-            <div class="row">
-                <div v-for="user in datausers" :key="user" class="card col-md-3 mx-2 my-2">
+            <div class="row row-cols-4 g-3">
+                <div v-for="user in datausers" :key="user" class="card col mr-1">
                     <img src="/default-user-image.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ user.name }}</h5>
@@ -13,7 +13,10 @@
                         <p class="card-text">
                             Company : {{ user.company.name }}
                         </p>
-                        <router-link :to="{name:'users'}" class="btn btn-primary">Detail User</router-link>
+                        <router-link 
+                        :to="{name:'detailuser', 
+                        params: { id: user.id, username: user.username }}" 
+                        class="btn btn-primary">Detail User</router-link>
                     </div>
                 </div>
             </div>
