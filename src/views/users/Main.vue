@@ -3,6 +3,9 @@
         <layout-main>
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Users</h1>
+                <router-link 
+                        :to="{name:'createuser'}" 
+                        class="btn btn-success">Create User</router-link>
             </div>
             <div class="row row-cols-4 g-3">
                 <div v-for="user in datausers" :key="user" class="card col mr-1">
