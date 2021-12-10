@@ -1,18 +1,19 @@
 <template>
-    <div>
-        <layout-main>
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Create New User</h1>
-            </div>
-            <div>
+  <div>
+      <layout-main>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Create New User</h1>
+          </div>
+          <div>
                 <div v-if="datausers == null && errormessage !== null" class="alert alert-danger" role="alert">
-                    {{ errormessage }}
+                    {{errormessage}}
                 </div>
 
-                <div v-if="successmessage !== null" class="alert alert-success" role="alert">
-                    {{ successmessage }}
+                <div v-if="succesmessage !== null" class="alert alert-success" role="alert">
+                    {{succesmessage}}
                 </div>
-                <form @submit.prevent="createNewUser">
+
+                <form @submit.prevent ="createNewUser">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input v-model="user.name" type="text" class="form-control" id="name">
@@ -23,49 +24,48 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
-            </div>
-        </layout-main>
-    </div>
+          </div>
+      </layout-main>
+  </div>
 </template>
 
 <script>
 import LayoutMain from "@/views/LayoutMain"
 export default {
-    components: {
+    components : {
         LayoutMain
-    },
+    }, 
     data() {
-        return {
-            user: { name: null, username: null},
-            datausers: null,
+        return{
+            user: {name: null, username: null},
+            datausers : null,
             errormessage: null,
-            successmessage: null
+            succesmessage: null
         }
     },
-    methods: {
+    methods : {
         createNewUser() {
-             fetch("https://jsonplaceholder.typicode.com/users/",
+            fetch("https://jsonplaceholder.typicode.com/users", 
                 {
                     headers: {
-                            'Content-type': 'application/json; charset=UTF-8',
+                        'Content-type': 'application/json; charset=UTF-8',
                     },
-                    method: 'POST',
+                    method : 'POST',
                     body: JSON.stringify(this.user)
-                }
-             )
-                .then(response => response.json())  //then 1, set response sebagai json
+                })                
+                .then(response => response.json()) //then 1 untuk set respon sebagai json
                 .then(json => {
                     if(json?.id !== undefined){
                         this.datausers = json;
-                        this.successmessage = "User berhasil disimpan!";
+                        this.succesmessage = "Data berhasil disimpan!"
                     }else{
-                        this.errormessage = "Data user gagal disimpan!";
-                    }                    
-                })   //then 2, ambil respon json dan set sebagai data
+                        this.errormessage = "Data gagal disimpan!";
+                    }
+                }) //then2 mengambil json dan di tmpung k dlm data
                 .catch(error => {
                     console.log(error);
-                    this.errormessage = "Gagal, silakan coba lag!";
-                }) 
+                    this.errormessage = "Gagal. Silahkan coba lagi!";
+                })
         }
     }
 }
